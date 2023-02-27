@@ -7,8 +7,7 @@ defmodule KVServer.Application do
 
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: KVServer.Worker.start_link(arg)
-      # {KVServer.Worker, arg}
+      {Task, fn -> KVServer.accept(4040) end}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
